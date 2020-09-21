@@ -6,23 +6,37 @@ public class DymticNPCControler : MonoBehaviour
 {
     private Vector2 direction;
     private float speed;
+
+    private bool isMove;
     // Start is called before the first frame update
     void Start()
     {
         direction = Vector2.left;
+        isMove = true;
         speed = 0.4f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if(isMove)
+            Move();
     }
 
     void Move()
     {
         //Debug.Log(direction.ToString());
         transform.Translate(direction * speed * Time.deltaTime);
+    }
+
+    public void StopMove()
+    {
+        isMove = false;
+    }
+
+    public void KeepMove()
+    {
+        isMove = true;
     }
 
     public void TurnAround(Vector2 ldirection)

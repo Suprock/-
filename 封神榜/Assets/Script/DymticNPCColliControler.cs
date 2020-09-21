@@ -6,12 +6,14 @@ public class DymticNPCColliControler : ColliControler
 {
     // Start is called before the first frame update
     private NPCTipControler NPCTip;
+    private GameObject NPC;
     private bool isTurnAround;
     private Vector2 direction;
     protected override void Start()
     {
         //base.Start();
         NPCTip = gameObject.transform.parent.GetChild(0).GetComponent<NPCTipControler>();
+        NPC = gameObject.transform.parent.gameObject;
         //isTurnAround = false;
     }
 
@@ -25,6 +27,8 @@ public class DymticNPCColliControler : ColliControler
         if(other.transform.tag == "Player")
         {
             NPCTip.Display();
+            //NPC组件停止运动
+            NPC.GetComponent<DymticNPCControler>().StopMove();
         }
         else if(other.transform.tag == "Border")
         {
@@ -40,6 +44,14 @@ public class DymticNPCColliControler : ColliControler
             {
                 direction = Vector2.right;
             }
+            // else if(gameObject.name == "topColli")
+            // {
+            //     direction = Vector2.up;
+            // }
+            // else if(gameObject.name == "bottomColli")
+            // {
+            //     direction = Vector2.down;
+            // }
             gameObject.transform.parent.GetComponentInParent<DymticNPCControler>().TurnAround(direction);
         }
     }
@@ -49,6 +61,7 @@ public class DymticNPCColliControler : ColliControler
         if(other.transform.tag == "Player")
         {
             NPCTip.Hide(); 
+            NPC.GetComponent<DymticNPCControler>().KeepMove();
         }
         // else if(other.transform.tag == "Border")
         // {

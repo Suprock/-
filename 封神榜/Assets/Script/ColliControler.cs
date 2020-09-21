@@ -5,7 +5,7 @@ using UnityEngine;
 public class ColliControler : MonoBehaviour
 {
     private NPCTipControler NPCTip;
-
+    private GameObject NPC;
     protected virtual void Start() {
         NPCTip = gameObject.transform.parent.GetChild(0).GetComponent<NPCTipControler>();
     }

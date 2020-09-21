@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPCTipControler : MonoBehaviour
 {
 
-    public TalkUIControler talkUI;
+    private TalkUIControler talkUI;
     public GameObject[] talkUIs;
     // Start is called before the first frame update
     void Start()
@@ -33,7 +33,7 @@ public class NPCTipControler : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.F))
         {
-            talkUI.Display();
+            talkUI.Display(transform.parent.gameObject);
             gameObject.SetActive(false);   
         }
     }
