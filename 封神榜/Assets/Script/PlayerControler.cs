@@ -13,7 +13,7 @@ public class PlayerControler : MonoBehaviour
     void Start()
     {
         direction = Vector2.zero;
-        speed = 0.08f;
+        speed = 0.04f;
         anim = gameObject.GetComponent<Animator>();
     }
 

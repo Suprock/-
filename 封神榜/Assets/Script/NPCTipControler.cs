@@ -27,6 +27,7 @@ public class NPCTipControler : MonoBehaviour
     public void Hide()
     {
         gameObject.SetActive(false);
+        talkUI.Hide();
     }
 
     void GetInput()
