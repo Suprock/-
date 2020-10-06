@@ -1,35 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class PlayerControler : MonoBehaviour
 {
     private Vector2 direction;
     private float speed;
     private Animator anim;
-
+    public AIPath aIPath;
     private Vector3 point;
     // Start is called before the first frame update
-    private int mask;
     void Start()
     {
         direction = Vector2.zero;
         speed = 0.04f;
-        anim = gameObject.GetComponent<Animator>();
-        //接受开始或者读档场景传递的数据
-        //读档数据要把属性都传递过来。json数据以mask为标准判定是读档或是新的开始
-        //如{"mask":1, "archive":1}
-        //如{"mask":0}
-        mask = 0;
-        if(mask == 0)
-        {
-            PlayerProperty playerNezha = new PlayerProperty("nezha");
-            playerNezha.InitZeroProperty();
-        }
-        else if(mask == 1)
-        {
-            //根据archive内容设置不同主角信息
-        }
+        anim = gameObject.GetComponent<Animator>();    
     }
 
     // Update is called once per frame
@@ -40,34 +26,41 @@ public class PlayerControler : MonoBehaviour
 
     void GetInput()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (aIPath.velocity.y >= 0.01f)
         {
             direction = Vector2.up;
             anim.SetFloat("X", direction.x);
             anim.SetFloat("Y", direction.y);
-            Move();
+            //Move()y
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (aIPath.velocity.y <= -0.01f)
         {
             direction = Vector2.down;
             anim.SetFloat("X", direction.x);
             anim.SetFloat("Y", direction.y);
-            Move();
+           // Move();
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (aIPath.velocity.x <= -0.01f)
         {
             direction = Vector2.left;
             anim.SetFloat("X", direction.x);
             anim.SetFloat("Y", direction.y);
-            Move();
+           // Move();
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (aIPath.velocity.x >= 0.01f)
         {
             direction = Vector2.right;
             anim.SetFloat("X", direction.x);
             anim.SetFloat("Y", direction.y);
-            Move();
+            //Move();
         }
+        // Vector3 newPosition = Vector3.zero;
+        // if(Input.GetMouseButtonDown(0))
+        // {
+        //     newPosition = camera.ScreenToWorldPoint(Input.mousePosition);
+        //     newPosition.z = 0;
+        //     seeker.StartPath(transform.position, newPosition);
+        // }
     }
 
     void Move()

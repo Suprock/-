@@ -1,79 +1,83 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PlayerProperty : MonoBehaviour
+[System.Serializable]
+public class PlayerProperty
 {
-    [Header("人物属性")]
-    private string name;
-    private int grade;
-    private int maxHealthValue;
-    private int healthValue;
-    private int maxMagicalValue;
-    private int magicalValue;
+    public string name;
+     public int grade;
+    
+    public int maxHealthValue;
+    
+    public int healthValue;
+    
+    public int maxMagicalValue;
+    
+    public int magicalValue;
+    
 
-    private int attackPower;
-    private int defense;
-    private int spiritualPower;
-    private int magicDefense;
-    private int speed;
-    private int avoidance;
+    public int attackPower;
+    
+    public int defensePower;
+    
+    public int spiritualPower;
+    
+    public int magicDefensePower;
+    
+    public int speed;
+    
+    //回避力
+    public int avoidance;
+    
+    //经验值
+    public int exp;
+    
 
-    [Header("携带装备")]
     //装备编号
-    private int weapon01;
-    private int weapon02;
-    private int clothes;
-    private int shoes;
-    private int necklace;
+    public int weapon01;
+    
+    public int weapon02;
+    
+    public int clothes;
+    
+    public int shoes;
+    
+    public int necklace;
+    
 
-    [Header("坐标")]
     //人物位置的坐标值
-    private Vector2 position;
+    public Vector2 position;
+    public string Name { get => name; set => name = value; }
+    public int Grade { get => grade; set => grade = value; }
+    public int MaxHealthValue { get => maxHealthValue; set => maxHealthValue = value; }
+    public int HealthValue { get => healthValue; set => healthValue = value; }
+    public int MaxMagicalValue { get => maxMagicalValue; set => maxMagicalValue = value; }
+    public int MagicalValue { get => magicalValue; set => magicalValue = value; }
+    public int AttackPower { get => attackPower; set => attackPower = value; }
+    public int DefensePower { get => defensePower; set => defensePower = value; }
+    public int SpiritualPower { get => spiritualPower; set => spiritualPower = value; }
+    public int MagicDefensePower { get => magicDefensePower; set => magicDefensePower = value; }
+    public int Speed { get => speed; set => speed = value; }
+    public int Avoidance { get => avoidance; set => avoidance = value; }
+    public int Exp { get => exp; set => exp = value; }
+    public int Weapon01 { get => weapon01; set => weapon01 = value; }
+    public int Weapon02 { get => weapon02; set => weapon02 = value; }
+    public int Clothes { get => clothes; set => clothes = value; }
+    public int Shoes { get => shoes; set => shoes = value; }
+    public int Necklace { get => necklace; set => necklace = value; }
+    public Vector2 Position { get => position; set => position = value; }
 
-    public PlayerProperty(string lname)
-    {
-        name = lname;
-    }
-    // Start is called before the first frame update
-    void GetPropertyInArchive()
-    {
-        //在存档中获取所有信息
-    }
+   
+    
 
-    public void InitZeroProperty()
+    public PlayerProperty()
     {
-        //设置主角0J的属性
-        // int zeroMaxHealthValue = 150;
-        // int zeroMaxMagicalValue = 150;
 
-        // int zeroAttackPower = 5;
-        // int zeroDefense = 5;
-        // int zeroSpiritualPower = 5;
-        // int zeroMagicDefense = 5;
-        // int zeroSpeed = 5;
-        switch(name)
-        {
-            case "nezha":
-                grade = 0;
-                healthValue = maxHealthValue = 150;
-                magicalValue = maxMagicalValue = 150;
-                attackPower = 15;
-                defense = 10;
-                spiritualPower = 5;
-                magicDefense = 5;
-                speed = 5;
-                avoidance = 0;
-                weapon01 = 0;
-                weapon02 = 0;
-                clothes = 0;
-                necklace = 0;
-                shoes = 0;
-                break;
-        }
     }
 
+}
 
-
-
+public static class PlayerProperties
+{
+    public static string sNezha = "{\"name\":\"nezha\",\"grade\":0,\"maxHealthValue\":150,\"healthValue\":150,\"maxMagicalValue\":150,\"magicalValue\":150,\"attackPower\":15,\"defensePower\":15,\"spiritualPower\":15,\"magicDefense\":5, \"speed\":5,\"avoidance\":1,\"exp\":0,\"weapon01\":0,\"weapon02\":0,\"clothes\":0,\"shoes\":0,\"necklace\":0,\"position\":{\"x\":0,\"y\":0}}";
 }
