@@ -9,6 +9,7 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+/[Ll]ibrary/Artifact*/*
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -60,6 +61,7 @@ sysinfo.txt
 *.png
 *.jpg
 *.wmv
+ArtifactDB
 
 # Crashlytics generated file
 crashlytics-build.properties
