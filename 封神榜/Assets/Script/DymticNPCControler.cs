@@ -39,18 +39,37 @@ public class DymticNPCControler : MonoBehaviour
         isMove = true;
     }
 
-    public void TurnAround(Vector2 ldirection)
+    public void TurnAround()
     {
-        if(ldirection == Vector2.left)
+        bool filpx = gameObject.transform.GetComponent<SpriteRenderer>().flipX;
+        if(!filpx)
         {
             gameObject.transform.GetComponent<SpriteRenderer>().flipX = true;
             direction = Vector2.right;
         }
-        else if(ldirection == Vector2.right)
+        else
         {
             gameObject.transform.GetComponent<SpriteRenderer>().flipX = false;
             direction = Vector2.left;
         }
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.transform.tag == "Player")
+        {
+            StopMove();
+        }
+        else if(other.transform.tag == "Border")
+        {
+            TurnAround();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        if(other.transform.tag == "Player")
+        {
+            KeepMove();
+        }
     }
 }

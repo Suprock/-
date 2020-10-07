@@ -52,7 +52,7 @@ public class DymticNPCColliControler : ColliControler
             // {
             //     direction = Vector2.down;
             // }
-            gameObject.transform.parent.GetComponentInParent<DymticNPCControler>().TurnAround(direction);
+            //gameObject.transform.parent.GetComponentInParent<DymticNPCControler>().TurnAround(direction);
         }
     }
 
