@@ -60,7 +60,7 @@ public class DymticNPCControler : MonoBehaviour
         {
             StopMove();
         }
-        else if(other.transform.tag == "Border")
+        else
         {
             TurnAround();
         }

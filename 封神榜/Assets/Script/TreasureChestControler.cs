@@ -13,7 +13,9 @@ public class TreasureChestControler : MonoBehaviour
     private void OnGUI() {
         if(PlayerPrefs.GetString("宝箱1") == "opened")
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("/Articles/物品29");
+            Texture2D tex = Resources.Load("Articles/boxopen") as Texture2D;
+            Sprite image = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 16.0f);
+            gameObject.GetComponent<SpriteRenderer>().sprite = image;
         }
     }
 
@@ -27,14 +29,29 @@ public class TreasureChestControler : MonoBehaviour
 
     public void Open()
     {
-        if(PlayerPrefs.GetString("宝箱1") == "opened")
+        if(PlayerPrefs.GetString(transform.name) == "opened")
         {
             print("箱子已经被打开了！");
         }
         else
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("/Articles/物品29");
-            PlayerPrefs.SetString("宝箱1", "opened");
+            print("获得草药+1");
+            gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Articles/boxopen");
+            PlayerPrefs.SetString(transform.name, "opened");
+            Item item = JsonUtility.FromJson<Item>(Items.Herb);
+            GameDataCache dtc = JsonUtility.FromJson<GameDataCache>(PlayerPrefs.GetString("gamedatacache"));
+            int num;
+            bool istrue = dtc.dItems.TryGetValue(item.ID, out num);
+            if(istrue)
+            {
+                num += 1;
+                
+            }
+            else
+            {
+                num = 1;
+            }
+            dtc.dItems.Add(item.ID, num);
         }
         
     }
@@ -59,22 +76,8 @@ public class TreasureChestControler : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.F))
         {
-            Open();
-            print("获得草药+1");
-            Item item = JsonUtility.FromJson<Item>(Items.Herb);
-            GameDataCache dtc = JsonUtility.FromJson<GameDataCache>(PlayerPrefs.GetString("gamedatacache"));
-            int num;
-            bool istrue = dtc.dItems.TryGetValue(item, out num);
-            if(istrue)
-            {
-                num += 1;
-                
-            }
-            else
-            {
-                num = 1;
-            }
-            dtc.dItems.Add(item, num);
+            Open();            
+            
         }
     }
 }

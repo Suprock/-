@@ -20,6 +20,7 @@ public class GameControler : MonoBehaviour
 
     public void OnClickButtonBegin()
     {
+        PlayerPrefs.DeleteAll();
         PlayerPrefs.SetString("MASK", "0");
         GameDataCache dtc = new GameDataCache();
         dtc.sceneID = 1;

@@ -10,14 +10,14 @@ public class GameDataCache
     public int sceneID;
     
     public List<PlayerProperty> LP = new List<PlayerProperty>();
-    public Dictionary<Item, int> dItems = new Dictionary<Item, int>();
+    public Dictionary<int, int> dItems = new Dictionary<int, int>();
     public GameDataCache()
     {
 
     }
 
     public List<PlayerProperty> LP1 { get => LP; set => LP = value; }
-    public Dictionary<Item, int> DItems { get => dItems; set => dItems = value; }
+    public Dictionary<int, int> DItems { get => dItems; set => dItems = value; }
 
 
 }
