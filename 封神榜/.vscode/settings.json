@@ -52,5 +52,6 @@
         "ProjectSettings/":true,
         "temp/":true,
         "Temp/":true
-    }
+    },
+    "python.pythonPath": "C:\\Users\\supro\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
 }

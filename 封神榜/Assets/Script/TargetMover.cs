@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Linq;
+using Pathfinding;
 
-namespace Pathfinding {
+//namespace Pathfinding {
 	/// <summary>
 	/// Moves the target in example scenes.
 	/// This is a simple script which has the sole purpose
@@ -74,4 +75,4 @@ namespace Pathfinding {
 			}
 		}
 	}
-}
+//}

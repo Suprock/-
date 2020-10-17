@@ -1,1 +1,3 @@
-{"name":"nezha","grade":0,"maxHealthValue":150,"healthValue":150,"maxMagicValue":150,"magicValue":150,"attackPower":15,"defensePower":15,"spiritualPower":15,"magicDefense":5, "speed":5,"avoidance":1,"exp":0,"weapon01":0,"weapon02":0,"clothes":0,"shoes":0,"necklace":0,"position":{"x":0,"y":0}}
+//{"name":"nezha","grade":0,"maxHealthValue":150,"healthValue":150,"maxMagicValue":150,"magicValue":150,"attackPower":15,"defensePower":15,"spiritualPower":15,"magicDefense":5, "speed":5,"avoidance":1,"exp":0,"weapon01":0,"weapon02":0,"clothes":0,"shoes":0,"necklace":0,"position":{"x":0,"y":0}}
+//{ID:1,name:\"药草\",type:0,content:\"回复生命50\",pt:0,ptNum:50,price:30}
+{\"ID\":1,\"name\":\"药草\",\"type\":0,\"content\":\"回复生命50\",\"pt\":0,\"ptnum\":50,\"price\":30}

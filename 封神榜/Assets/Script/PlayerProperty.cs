@@ -19,7 +19,7 @@ public class PlayerProperty
     public int attackPower;
     
     public int defensePower;
-    
+    //灵力成长，魔法防御力第一版本为成长式
     public int spiritualPower;
     
     public int magicDefensePower;
@@ -41,8 +41,8 @@ public class PlayerProperty
     public int clothes;
     
     public int shoes;
-    
-    public int necklace;
+    //项链，第一版本抛弃
+    //public int necklace;
     
 
     //人物位置的坐标值
@@ -64,7 +64,7 @@ public class PlayerProperty
     public int Weapon02 { get => weapon02; set => weapon02 = value; }
     public int Clothes { get => clothes; set => clothes = value; }
     public int Shoes { get => shoes; set => shoes = value; }
-    public int Necklace { get => necklace; set => necklace = value; }
+    //public int Necklace { get => necklace; set => necklace = value; }
     public Vector2 Position { get => position; set => position = value; }
 
    

@@ -18,6 +18,4 @@ public class GameDataCache
 
     public List<PlayerProperty> LP1 { get => LP; set => LP = value; }
     public Dictionary<int, int> DItems { get => dItems; set => dItems = value; }
-
-
 }
